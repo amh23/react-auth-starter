@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 export const UserInfoPage = () => {
     // We'll use the history to navigate the user
     // programmatically later on (we're not using it yet)
+    // eslint-disable-next-line
     const history = useHistory();
 
     // These states are bound to the values of the text inputs
