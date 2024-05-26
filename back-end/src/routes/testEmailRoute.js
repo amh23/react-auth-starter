@@ -8,14 +8,14 @@ export const testEmailRoute = {
         try{
             await sendEmail({
                 from: {
-                    email: 'MS_RNZnHm@trial-jpzkmgqyv1yl059v.mlsender.net',
+                    email: 'MS_VNGDZr@trial-jpzkmgqyv1yl059v.mlsender.net',
                     name: 'Sont Sont',
                 },
                 to: {
                     email: 'ayemyahan23@gmail.com',
                     name: 'aye mya',
                 },
-                subject: 'Testing sending email using MailerSend',
+                subject: 'Testing sending email using MailerSend After merge conflict',
                 text: 'If you are reading this, it works',
                 html: '<strong>Hi there, I am HTML</strong>',
             });            
