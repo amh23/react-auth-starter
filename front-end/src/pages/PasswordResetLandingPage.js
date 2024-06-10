@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-import axios from axios;
+import axios from 'axios';
 import { PasswordResetSuccessPage } from './PasswordResetSuccessPage';
 import { PasswordResetFailurePage } from './PasswordResetFailurePage';
 
@@ -11,7 +11,7 @@ export const PasswordResetLandingPage = () => {
     const [passwordValue, setPasswordValue ] =  useState('');
     const [confirmPasswordValue, setConfirmPasswordValue ] = useState('');
     
-    const passwordResetCode = useParams();
+    const { passwordResetCode } = useParams();
 
     const onResetClicked = async () => {
         try {
@@ -40,8 +40,9 @@ export const PasswordResetLandingPage = () => {
                 onChange={e => setConfirmPasswordValue(e.target.value)}
                 placeholder="Confirm Password" />   
             <button 
-                disabled={!passwordValue || !confirmPasswordValue || passwordValue |== confirmPasswordValue }
+                disabled={!passwordValue || !confirmPasswordValue || passwordValue !== confirmPasswordValue }
                 onClick={onResetClicked}
             >Reset Password</button>
         </div>
+    )
 }
