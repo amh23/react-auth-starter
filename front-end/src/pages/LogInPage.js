@@ -3,8 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { useToken } from '../auth/useToken';
 import axios from 'axios';
 
+import { useQueryParams } from '../util/useQueryParams';
+
 export const LogInPage = () => {
-    const [token, setToken] = useToken();
+    const [, setToken] = useToken();
     const [errorMessage, setErrorMessage] = useState('');
 
     const [emailValue, setEmailValue ] = useState('');
@@ -12,7 +14,16 @@ export const LogInPage = () => {
 
     const [googleOauthUrl, setGoogleOauthUrl ] = useState('');
 
+    const { token: oauthToken } = useQueryParams();
+
     const history = useHistory();
+
+    useEffect(() => {
+        if(oauthToken) {
+            setToken(oauthToken);
+            history.push('/');
+        }
+    }, [oauthToken, setToken, history]);
 
     useEffect(() => {
         const loadOauthUrl = async () => {
